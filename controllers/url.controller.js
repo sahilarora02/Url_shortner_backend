@@ -11,15 +11,16 @@ async function handleGenerateUrlShortner(req, res) {
     if (!body.URL) {
       return res.status(404).json({ message: "No url provided" });
     }
-    const shortId = shortid(8); // generate a random id of length
+    const shortId = shortid(8); 
     await URL.create({
       shortId: shortId,
       redirectUrl: body.URL,
       visitHistory: [],
     });
-    return res.status(200).json({ id: shortId });
+    return res.status(200).json({ new_url: `http://localhost:8001/${shortId}` });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error });
   }
 }
+
