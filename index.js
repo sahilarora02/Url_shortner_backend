@@ -13,7 +13,9 @@ connectToMongoose(process.env.MONGO_URL)
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://web-url-shortner.netlify.app/'
+  origin: 'https://web-url-shortner.netlify.app',
+  methods: ['GET', 'POST'], 
+  allowedHeaders: ['Content-Type'] 
 }));
 
 app.use("/url", UrlRoute);
