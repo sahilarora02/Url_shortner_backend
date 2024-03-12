@@ -17,7 +17,7 @@ async function handleGenerateUrlShortner(req, res) {
       redirectUrl: body.URL,
       visitHistory: [],
     });
-    return res.status(200).json({ new_url: `http://localhost:8001/${shortId}` });
+    return res.status(200).json({ new_url: `https://url-shortner-backend-zltz.onrender.com/${shortId}` });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error });
